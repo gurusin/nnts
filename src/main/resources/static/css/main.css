@@ -1,0 +1,409 @@
+/*
+Login Stylesheet for health care app
+Concept:Ravindu Lokumanna
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+:after, :before {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+fieldset, img {
+    border: none;
+}
+a, button:focus, input:focus, object, textarea:focus {
+    outline: 0!important;
+}
+li {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-weight: 400;
+}
+button, input[type=button], input[type=reset], input[type=submit], input[type=checkbox], input[type=radio], select {
+    cursor: pointer;
+}
+button[disabled], input[disabled] {
+    cursor: default;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, iframe, img, nav, object, section, summary, video {
+    display: block;
+}
+@font-face {
+    font-family: ProximaNova;
+    src: url(../fonts/ProximaNova-RegularWeb.woff) format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: ProximaNova;
+    src: url(../fonts/ProximaNova-RegularItWeb.woff) format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: ProximaNova;
+    src: url(../fonts/ProximaNova-LightWeb.woff) format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: ProximaNova;
+    src: url(../fonts/ProximaNova-BoldWeb.woff) format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: ProximaNova;
+    src: url(../fonts/ProximaNova-BoldItWeb.woff) format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+
+html {
+    height: 100%;
+    position: relative;
+    background: #fff;
+    overflow: auto;
+}
+body {
+    min-height: 100%;
+    color: #38383b;
+    font-family: ProximaNova, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    overflow-x: hidden;
+	background-image: url(../img/bg.jpg);
+}
+h1 {
+    color: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: auto;
+}
+
+address, ol, p, ul {
+    margin-bottom: 11px;
+}
+p+ol, p+ul {
+    margin-top: -11px;
+}
+ol {
+    padding-left: 22px;
+}
+nav nav, nav ol, nav ul, ol nav, ol ol, ol ul, ul nav, ul ol, ul ul {
+    margin-bottom: 0;
+}
+ol li {
+    list-style: decimal;
+}
+address {
+    font-style: italic;
+}
+td, th {
+    font-family: ProximaNova, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+}
+::-moz-selection {
+    background: #3498db;
+    color: #fff;
+}
+::selection {
+    background: #3498db;
+    color: #fff;
+}
+a {
+    position: relative;
+    color: #34495e;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+    line-height: 14px;
+}
+a:hover {
+    text-decoration: none;
+}
+a.blue-link {
+    color: #3498db;
+}
+a.light-link {
+    color: #e9eef4!important;
+}
+a.blue-gray-link {
+    color: #707c8a;
+    text-decoration: none;
+}
+a.blue-gray-link:hover {
+    color: #c2c8ce;
+}
+a.dark-yellow-link {
+    color: #b88200;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+a.dark-yellow-link:hover {
+    color: #58502d;
+}
+a.light-weight-link {
+    font-weight: 400;
+}
+a.inactive {
+    opacity: .3;
+    cursor: default;
+    pointer-events: none;
+}
+.baseline {
+    display: none;
+    opacity: .8;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2147483648;
+    background-size: 6px 6px;
+    background-repeat: repeat;
+    background-position: left top;
+    pointer-events: none;
+}
+input[type=text], input[type=password] {
+    width: 280px;
+    height: 30px;
+    margin-bottom: 21px;
+    padding: 0 12px;
+    border: 1px solid #e3e3e3;
+    border-radius: 2px;
+    background: transparent;
+    color: #666;
+    font-family: ProximaNova, sans-serif;
+    font-size: 14px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05);
+    /* float: right; */
+    margin-left: 10px;
+}
+input[type=text]:focus, input[type=password]:focus {
+    border-color: #c1c1c1;
+}
+.error input[type=text], .error input[type=password] {
+    border-color: #FA3B25;
+    color: #FA3B25;
+}
+.working input[type=text], .working input[type=password] {
+    border: 1px solid #E3E3E3;
+    background-color: #F5F5F5;
+    color: #666;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05), inset 0 0 0 50px #f5f5f5!important;
+}
+label {
+    display: block;
+    /* margin-bottom: 7px; */
+    color: #404040;
+    /* float: left; */
+    /* padding-left: 40px; */
+}
+::-webkit-input-placeholder {
+    color: #666;
+    opacity: .4;
+    font-style: italic;
+}
+::-moz-placeholder {
+    color: #666;
+    opacity: .4;
+    font-style: italic;
+}
+:-ms-input-placeholder {
+    color: #666;
+    opacity: .4;
+    font-style: italic;
+}
+:-webkit-autofill {
+    color: #666;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05), inset 0 0 0 50px #fff!important;
+}
+.btn-flat {
+    height: 50px;
+    padding: 0 20px;
+    border: 1px solid #2294e4;
+    border-radius: 2px;
+    position: relative;
+    background-color: #2294e4;
+    color: #fff;
+    font-family: ProximaNova, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    outline: 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+    transition: color .1s ease-in-out, background-color .1s ease-in-out, border-color .1s ease-in-out;
+}
+.btn-flat:hover {
+    border-color: #4faaea;
+    background-color: #4faaea;
+
+
+}#login {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    
+    color: #404040;
+    font-size: 14px;
+    text-align: center;
+}
+#login #logo {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #d7d7d7;
+    position: absolute;
+    top: 67px;
+    left: 66px;
+}
+#login #login-form {
+    width: 450px;
+    position: relative;
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    text-align: left;
+}
+#login #login-form .form-lead h1 {
+    margin-bottom: 34px;
+    color: #505050;
+    font-size: 30px;
+    font-weight: 200;
+    line-height: 30px;
+    text-transform: none;
+}
+#login #login-form .form-lead p {
+    margin-bottom: 34px;
+    color: #909090;
+    line-height: 18px;
+}
+#login #login-form .form-lead p.global-error {
+    color: #fa3b25;
+}
+#login #login-form footer {
+    padding: 9px 0 0;
+}
+#login #login-form footer:after {
+    display: block;
+    height: 0;
+    clear: both;
+    content: '';
+    overflow: hidden;
+}
+#login #login-form footer .field-group {
+    padding: 4px 29px 4px 0;
+    border-right: 1px solid #e7e7e7;
+    float: left;
+}
+#login #login-form footer .field-group #loginform_button1 {
+    width: 150px;
+}
+#login #login-form footer .other-links {
+    padding: 12px 0 0 29px;
+    float: left;
+    font-size: 12px;
+}
+#login #login-form footer .other-links p {
+    display: block;
+    margin-bottom: 10px;
+    color: #2294E4;
+    line-height: 12px;
+}
+#login #login-form footer .other-links p a {
+    display: inline-block;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, rgba(135, 135, 135, .3) 1px, rgba(135, 135, 135, .3) 2px, rgba(0, 0, 0, 0) 2px);
+    color: #212020;
+    font-weight: 400;
+    text-decoration: none;
+}
+#login #login-form footer .other-links p a:hover {
+    color: #2294e4;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, rgba(34, 148, 228, .2) 1px, rgba(34, 148, 228, .2) 2px, rgba(0, 0, 0, 0) 2px);
+}
+#login #login-form.password-reminder footer .field-group #loginform_button1 {
+    width: 180px;
+}
+#login #login-form.password-reminder footer .other-links {
+    padding-top: 24px;
+}
+#login #login-form.password-reminder.email-sent header p {
+    display: none;
+}
+#login #login-form.password-reminder.email-sent .success-layer p {
+    margin-bottom: 30px;
+}
+#login #login-form.password-reminder.email-sent .success-layer .btn-flat {
+    display: block;
+    width: 80px;
+    line-height: 50px;
+    text-decoration: none;
+}
+#login #login-form.password-reminder.email-sent fieldset {
+    display: none;
+}
+#login #login-form .global-error {
+    color: #fa3b25;
+}
+#browser-bar {
+    width: 100%;
+    padding: 10px 10px 12px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    background: #ffd800;
+    color: #51687f;
+}
+
+.pls {font-size: 20px;
+margin-bottom:20px !Important;}
+
+.glass {
+    background: #EEFDFF;
+    background-clip: padding-box;/* Background stops at border */
+    border: 5px solid rgba(255,255,255,.2);
+    border-radius: 3px;
+    box-shadow: 0    0   1px  rgba(255,255,255,.8), /* Bright outer highlight */         0    0   3px  rgba(255, 237, 237, 0.8),       /* Outer shadow */         1px  1px 0    rgba(196, 186, 186, 0.8) inset, /* Inner shadow (top + left) */        -1px -1px 0    rgba(255, 255, 255, 0.8) inset;/* Inner shadow (bottom + right) */
+    padding: 10px;
+}
+
+input#login-password {
+    margin-left: 15px;
+}

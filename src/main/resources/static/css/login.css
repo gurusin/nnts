@@ -1,0 +1,87 @@
+body {
+    font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+    background-color: #4E5869;
+    margin: 0;
+    padding: 0;
+    color: #000;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin-top: 0;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.container {
+    max-width: 1260px;
+    min-width: 780px;
+    min-height:1000px;
+    background-color: #FFF;
+    margin: 0 auto;
+}
+.content {
+    padding: 10px 0;
+}
+
+.clearfloat {
+    clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+.dataRow {
+    min-height: 120px;
+}
+
+.dataRow div.loginBox{
+    height: 200px;
+    width: 50%;
+    background-color: #CCF;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #333;
+}
+.dataRow span.headSp{
+    margin:35px 0 0 0;
+    width:100%;
+    float:left;
+    text-align: center;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.dataBox {
+    text-align: center;
+    background-color: #CCF;
+}
+.LoginRow {
+    height:30px;
+    margin-top: 10px;
+}
+.LoginRow span{
+    float:left;
+}
+
+.LoginRow span.textSpn{
+    width:40%;
+    text-align:right;
+}
+
+.LoginRow span.inputSpn{
+    width:50%;
+    text-align:left;
+}
+
+.LoginRow span.inputSpn input{
+    width:160px
+}
+
+.menuRow {
+    background-color: #f4b04f;
+    color: black;
+    align:left;
+    margin:0 35px 35px 0;
+}

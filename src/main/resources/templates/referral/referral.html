@@ -1,0 +1,973 @@
+<div class="container content-area" ng-controller="refCtrl" ng-init="onLoad()">
+    <div class="col-sm-12">
+        <div class="row">
+            <h1>Referral</h1>
+
+                <!-- Form -->
+                <div class="row m-t-lg">
+                
+                    <div class="col-sm-12">
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t-md m-b-md">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Date and Time of referral (yyyy-mm-dd hh:mm:ss)</label>
+                                  <div class="col-sm-4">
+
+                                    <div class="dropdown">
+                                      <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="">
+                                          <div class="input-group">
+                                            <input type="text" class="form-control" value="{{ dto.referral.refDate | date:'yyyy-MM-dd HH:mm' }}"/>
+                                            <span class="input-group-btn">
+                                              <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                          </div>
+                                      </a>
+                                      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel2">
+                                          <datetimepicker data-ng-model="dto.referral.refDate"></datetimepicker>
+                                      </ul>
+                                    </div>  
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Reference Number</label>
+                                  <div class="col-lg-4">
+                                    <input type="text" class="form-control" ng-model="dto.referral.primaryKey" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Connected Via EBS</label>
+                                  <div class="col-sm-4">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optConViaEBS1" value="Yes"
+                                               ng-model="dto.referral.connectedViaEBS"/>
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optConViaEBS2" value="No"
+                                           ng-model="dto.referral.connectedViaEBS" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">EPS Operator</label>
+                                  <div class="col-lg-4">
+                                    <input type="text" class="form-control" ng-model="dto.referral.epsOperator"/>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Conference Call</label>
+                                  <div class="col-sm-4">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optConfCall" id="optConf1" value="Yes"
+                                               ng-model="dto.referral.conferenceCall" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optConfCall" id="optConf2" value="No"
+                                               ng-model="dto.referral.conferenceCall"/>
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Referral Type</label>
+                                  <div class="col-sm-4">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optRefType" id="refTypeEmergency" value="EMERGENCY"
+                                               ng-model="dto.referral.referralType"/>
+                                        <b style="color:#484848;">Emergency</b>
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optRefType" id="refTpeElective" value="ELECTIVE"
+                                               ng-model="dto.referral.referralType" />
+                                        <b style="color:#484848;">Elective Referral</b>
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optRefType" id="refTypeEnquiry" value="ENQUIRY"
+                                               ng-model="dto.referral.referralType"/>
+                                        <b style="color:#484848;">Enquiry</b>
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Referring Hospital</label>
+                                  <div class="col-lg-4">
+                                    <select  ng-model='dto.selectedCentreKey'>
+                                      <option>Select</option>
+                                      <option ng-repeat="row in centers" value="{{row.primaryKey}}"
+                                              ng-selected="{{dto.selectedCentreKey ==row.primaryKey}}">{{row.name}}
+                                      </option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Contact Name</label>
+                                  <div class="col-lg-4">
+                                    <input type="text" class="form-control" ng-model="dto.referral.contactName"/>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Telephone Number</label>
+                                  <div class="col-lg-4">
+                                    <input type="text" class="form-control"  ng-model="dto.referral.contactPhoneNumber"/>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Ward</label>
+                                  <div class="col-lg-4">
+                                    <input type="text" class="form-control" ng-model="dto.referral.ward" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Consultant</label>
+                                  <div class="col-lg-4">
+                                    <input type="text" class="form-control" ng-model="dto.referral.consultantName"/>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Ex or Bleep</label>
+                                  <div class="col-lg-4">
+                                    <input type="text" class="form-control" ng-model="dto.referral.exOrBleep" />
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- // Form -->
+
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+
+                <!-- Form -->
+                <div class="row m-t-lg">
+                
+                    <div class="col-sm-6">
+                        <!-- Heading -->
+                        <h3>Baby Details</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t m-b">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Surname</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" ng-model='dto.referral.babyDetails.surname'/>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Firstname</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" ng-model='dto.referral.babyDetails.firstname'/>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Date Time of Birth (yyyy-mm-dd hh:mm:ss)</label>
+                                  <div class="col-sm-8">
+
+                                    <div class="dropdown">
+                                      <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="">
+                                          <div class="input-group">
+                                            <input type="text" class="form-control" value="{{ dto.referral.babyDetails.dateOfBirth | date:'yyyy-MM-dd HH:mm' }}"/>
+                                            <span class="input-group-btn">
+                                              <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                          </div>
+                                      </a>
+                                      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel2">
+                                          <datetimepicker data-ng-model="dto.referral.babyDetails.dateOfBirth"></datetimepicker>
+                                      </ul>
+                                    </div>  
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Gestation</label>
+                                  <div class="col-lg-8">
+                                    <input type="number" class="form-control" data-ng-model="dto.referral.babyDetails.gestation"/>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Birth Weight</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" data-ng-model="dto.referral.babyDetails.currentWeight"/>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Current Weight</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" ng-model="dto.referral.currentWeight"/>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Gender</label>
+                                  <div class="col-sm-8">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optGender" id="optGender1" value="Male"
+                                               ng-model="dto.referral.babyDetails.babyDetails.gender"/>
+                                        Male
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optGender" id="optGender2" value="Female"
+                                               ng-model="dto.referral.babyDetails.babyDetails.gender"/>
+                                        Female
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optGender" id="optGender3" value="Ambiguous"
+                                               ng-model="dto.referral.babyDetails.gender"/>
+                                        Ambiguous
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-sm-6">
+                    
+                        <!-- Heading -->
+                        <h3>&nbsp;</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t m-b">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Date of Transfer (yyyy-mm-dd hh:mm:ss)</label>
+                                  <div class="col-sm-8">
+
+                                    <div class="dropdown">
+                                      <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="">
+                                          <div class="input-group">
+                                            <input type="text" class="form-control" value="{{ dto.referral.dateOfTransfer | date:'yyyy-MM-dd HH:mm' }}"/>
+                                            <span class="input-group-btn">
+                                              <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                          </div>
+                                      </a>
+                                      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel2">
+                                          <datetimepicker data-ng-model="dto.referral.dateOfTransfer"></datetimepicker>
+                                      </ul>
+                                    </div>  
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Team Used</label>
+                                  <div class="col-lg-8">
+                                    <select name="team" id="team" class="form-control" ng-model="dto.referral.transportTeam">
+                                      <option value="">Team 01</option>
+                                      <option value="">Team 02</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Team location at time of call</label>
+                                  <div class="col-lg-8">
+                                    <select name="teamLoc" id="teamLoc" class="form-control" ng-model="dto.referral.teamLocationAtCall">
+                                      <option value="">Location1</option>
+                                      <option value="">Location2</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- // Form -->
+
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+
+                <!-- Form -->
+                <div class="row m-t-lg">
+                
+                    <div class="col-sm-4">
+                        <!-- Heading -->
+                        <h3>Clinical Details</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t m-b">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Reason for Referral</label>
+                                  <div class="col-lg-8">
+                                    <select name="" id="" class="form-control">
+                                      <option value="">Value 01</option>
+                                      <option value="">Value 02</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Safeguarding Issues</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Antenatal History &amp; Delivery</label>
+                                  <div class="col-lg-8">
+                                    <textarea name="" id="" class="form-control" rows="5"></textarea>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Respiratory State</label>
+                                  <div class="col-sm-8">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" />
+                                        Ventilated
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                                        Cpap
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" />
+                                        N Cannula
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4" />
+                                        Oxygen
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios5" value="option5" />
+                                        SV
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios6" value="option6" />
+                                        Other
+                                      </label>
+                                    </div>
+                                    
+                                    <br/>
+                                    <br/>
+
+                                    <textarea name="" id="" class="form-control" rows="3"></textarea>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Temperature</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Inotropes</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Mean BP</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-sm-4">
+                        <!-- Heading -->
+                        <h3>&nbsp;</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t m-b">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Vent Mode</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Pressures</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">ETT Size</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Apgars</label>
+                                  <div class="col-lg-8">
+                                    <select name="" id="" class="form-control">
+                                      <option value="">1min</option>
+                                      <option value="">5min</option>
+                                      <option value="">10min</option>
+                                    </select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">I Time</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Rate</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Fio2</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Sats</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">BM</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Infection Issue</label>
+                                  <div class="col-sm-8">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                                        No
+                                      </label>
+                                    </div>
+                                    
+                                    <br/>
+                                    <br/>
+
+                                    <textarea name="" id="" class="form-control" rows="3"></textarea>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-sm-4">
+                        <!-- Heading -->
+                        <h3>&nbsp;</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t m-b">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">HR</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Glucose</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Fluids</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Feeding</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Sedation &amp; Paralysis</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Relevant Blood Results</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Antibiotics</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Congenital Abnormalities</label>
+                                  <div class="col-lg-8">
+                                    <textarea name="" id="" class="form-control" rows="5"></textarea>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Lines</label>
+                                  <div class="col-sm-8">
+                                    <textarea name="" id="" class="form-control" rows="3"></textarea>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- // Form -->
+
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+                <!-- Form -->
+                <div class="row m-t-lg">
+                    <div class="col-sm-12">
+
+                        <!-- Heading -->
+                        <h3>Latest gases: (A)rterial (V)enous (C)ap</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="table-responsive">
+                                <table class="table b-t b-light">
+                                  <thead>
+                                    <tr>
+                                      <th class="text-center" width="20%">Time</th>
+                                      <th class="text-center">PH</th>
+                                      <th class="text-center">PCo2</th>
+                                      <th class="text-center">Po2</th>
+                                      <th class="text-center">BE</th>
+                                      <th class="text-center">HC03</th>
+                                      <th class="text-center">Lactate</th>
+                                      <th class="text-center" width="10%"></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                        <td>
+                                          <div class="dropdown">
+                                            <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="">
+                                                <div class="input-group">
+                                                  <input type="text" class="form-control" value="{{ referral.date4 | date:'yyyy-MM-dd HH:mm' }}"/>
+                                                  <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                  </span>
+                                                </div>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel2">
+                                                <datetimepicker data-ng-model="referral.date4"></datetimepicker>
+                                            </ul>
+                                          </div> 
+                                        </td>
+
+                                        <td><input type="text" class="form-control" /></td>
+                                        <td><input type="text" class="form-control" /></td>
+                                        <td><input type="text" class="form-control" /></td>
+                                        <td><input type="text" class="form-control" /></td>
+                                        <td><input type="text" class="form-control" /></td>
+                                        <td><input type="text" class="form-control" /></td>
+
+                                        <td><button class="btn m-b-xs btn-sm btn-default btn-addon"><i class="fa fa-trash-o"></i>Remove</button></td>
+                                    </tr>
+
+                                  </tbody>
+                                </table>
+                              </div>
+                              <footer class="panel-footer">
+                                <div class="row">
+                                  <div class="col-sm-4 text-left">
+                                    <button class="btn m-b-xs btn-sm btn-info btn-addon"><i class="fa fa-plus"></i>Add</button>
+                                  </div>
+                                  <div class="col-sm-4 text-right text-center-xs pull-right">                
+                                    <ul class="pagination pagination-sm m-t-none m-b-none pull-right">
+                                      <li><a href=""><i class="fa fa-chevron-left"></i></a></li>
+                                      <li><a href="">1</a></li>
+                                      <li><a href="">2</a></li>
+                                      <li><a href="">3</a></li>
+                                      <li><a href="">4</a></li>
+                                      <li><a href="">5</a></li>
+                                      <li><a href=""><i class="fa fa-chevron-right"></i></a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </footer>
+                        </div>
+                    </div> 
+                </div><!-- // Form -->
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+                <!-- Form -->
+                <div class="row m-t-lg">
+                
+                    <div class="col-sm-12">
+                        <!-- Heading -->
+                        <h3><strong>You MUST answer this question!</strong></h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t-md m-b-md">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-sm-3 control-label">Is this transfer Time Critical?</label>
+                                  <div class="col-sm-8">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-3 control-label">Advice given to referring unit</label>
+                                  <div class="col-sm-8">
+                                    <textarea name="" id="" class="form-control" rows="3"></textarea>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-3 control-label">Advice followed?</label>
+                                  <div class="col-sm-8">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                                        No
+                                      </label>
+                                    </div>
+                                    
+                                    <br/>
+                                    <br/>
+                                    
+                                    <p>* If No provide reason</p>
+                                    <textarea name="" id="" class="form-control" rows="3"></textarea>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- // Form -->
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+                <!-- Form -->
+                <div class="row m-t-lg">
+                
+                    <div class="col-sm-6">
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t-md m-b-md">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Chargeable Journey</label>
+                                  <div class="col-sm-8">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes 
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Total Time</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- // Form -->
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+                <!-- Form -->
+                <div class="row m-t-lg">
+                
+                    <div class="col-sm-6">
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t-md m-b-md">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Accepting Hospital</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Accepting Unit/Ward</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Contact Name</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Phone No</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Reason transfered out of Network or reason NTS transfered when in another teams remit</label>
+                                  <div class="col-lg-8">
+                                    <textarea name="" id="" class="form-control" rows="4"></textarea>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Consultant on-call for NTS</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Form Completed by</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Transfer Cancelled</label>
+                                  <div class="col-sm-8">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                                        No
+                                      </label>
+                                    </div>
+                                    
+                                    <br/>
+                                    <br/>
+                                    
+                                    <p>* Reason</p>
+                                    <textarea name="" id="" class="form-control" rows="3"></textarea>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-sm-6">
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t-md m-b-md">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Name of personnel on transfer</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Doctor / ANNP</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Nurse</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Paramedic / EMT / ETA</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Observer</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Consultant</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- // Form -->
+
+            
+
+        </div>
+
+
+        <div class="row m-b-xxl m-t-xl">
+            <button type="button" class='btn1' ng-click="saveReferral()">Save Data</button>
+        </div>
+    </div>
+</div>
+
+<!--
+<script type="text/javascript">
+    $(function () {
+        $('#departure-picker').datetimepicker();
+    });
+</script>
+ -->

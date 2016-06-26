@@ -1,0 +1,102 @@
+select.dropdowns {
+    float: left;
+    min-width:20%;
+    height: 35px;
+}
+
+textarea.dataRow {
+    margin-left: 20px;
+    width: 65%;
+    height: 100px;
+}
+
+input[type="text"] {
+    width: 100%;
+}
+
+p.textori {
+    float: left;
+}
+
+input[type="smalltext"] {
+    margin-left: 10px;
+}
+
+tr {
+    font-weight: 800;
+    text-align: center;
+}
+.topic {
+    margin-bottom:50px;
+    
+}
+
+.btn1 {
+    min-width:100px;
+    background: #2E8BCC;
+    padding:10px;
+    color:#fff;
+    font-weight:800;
+    border:none !Important;
+    margin-top: 15px;
+    border-radius: 2px;
+    outline: none;
+}
+
+.btn1:hover {
+    background: #2178B5;
+}
+
+.btn2{
+    
+    min-width:100px;
+    height:27px;
+    font-weight:800;
+    border:none !Important;
+    margin-left:5px;
+    
+}
+
+.checkarea {
+    margin-top: 50px;
+}
+
+h4.selectb {
+    display: inline;
+    margin-right:20px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+    margin-left: 25px;
+    height: 16px;
+    width: 16px;
+}
+
+i.fa.fa-times.btn3 {
+    margin-right: 5px;
+}
+
+.bigtext {
+    height: 100px;
+    width:100%;
+}
+
+.table td { 
+     border-top: none !important; 
+ }
+
+label.nnts-incident-label {
+    margin-top: 10px;
+}
+
+textarea.nnts-incident-txtarea {
+    width: 100%;
+    height: 70px;
+}
+.nnts-incident-inline {
+    display: inline-block !Important;
+}
+.nnts-incident-defwidth {
+    width:100%
+}

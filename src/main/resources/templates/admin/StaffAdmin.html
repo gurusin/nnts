@@ -1,0 +1,121 @@
+<div class="container content-area">
+    <div class="col-sm-12">
+        <div class="row">
+            <h1>Neonatal Transfer - Pre Departure Check List</h1>
+
+            <!-- Form -->
+            <div class="row m-t-lg">
+                <div class="col-sm-12">
+
+                    <!-- Heading -->
+                    <h3>Medical Professional Types</h3><!-- // Heading -->
+
+                    <div class="panel panel-default">
+                        <div class="table-responsive">
+                            <table class="table b-t b-light">
+                                <thead>
+                                    <tr>
+                                      <th class="text-center" width="40%">Type Key</th>
+                                      <th class="text-center" width="60%">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                      <td class="text-center">General Hospital</td>
+                                      <td class="text-center">Colombo</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          </div>
+                          <footer class="panel-footer">
+                            <div class="row">
+                              <div class="col-sm-4 text-left">
+                                <button ng-click="showCategory = !showCategory" class="btn m-b-xs btn-sm btn-info btn-addon"><i class="fa fa-plus"></i>Add Medical Professional type</button>
+                              </div>
+                            </div>
+
+                            <div class="row m-t-xl m-b-lg" ng-show="showCategory">
+                                <div class="form-group">
+                                  <label class="col-lg-1 control-label">Description</label>
+                                  <div class="col-lg-7">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                  <div class="col-lg-3">
+                                    <button class="btn m-b-xs btn-sm btn-default btn-addon"><i class="fa fa-plus"></i>Save</button>
+                                  </div>
+                                </div>
+                            </div>
+                          </footer>
+                    </div>
+                </div> 
+            </div><!-- // Form -->
+
+
+            <div class="line line-dashed b-b line-lg"></div>
+
+            <!-- Form -->
+            <div class="row m-t-lg m-b-xxl">
+                <div class="col-sm-12">
+
+                    <!-- Heading -->
+                    <h3>Medical Professional Categories</h3><!-- // Heading -->
+
+                    <div class="panel panel-default">
+                        <div class="table-responsive">
+                            <table class="table b-t b-light">
+                                <thead>
+                                    <tr>
+                                      <th class="text-center" width="40%">Type Key</th>
+                                      <th class="text-center" width="40%">Med Prof Type</th>
+                                      <th class="text-center" width="40%">Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                      <td class="text-center">General Hospital</td>
+                                      <td class="text-center">Colombo</td>
+                                      <td class="text-center">Name</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          </div>
+                          <footer class="panel-footer">
+                            <div class="row">
+                              <div class="col-sm-4 text-left">
+                                <button ng-click="showMedProfPanel = !showMedProfPanel" class="btn m-b-xs btn-sm btn-info btn-addon"><i class="fa fa-plus"></i>Add Category / Grade</button>
+                              </div>
+                            </div>
+
+                            <div class="row m-t-xl m-b-md" ng-show="showMedProfPanel">
+                                <div class="form-group">
+                                  <label class="col-lg-2 control-label">Description</label>
+                                  <div class="col-lg-10">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="row m-b-lg" ng-show="showMedProfPanel">
+                                <div class="form-group">
+                                  <label class="col-lg-2 control-label">Medical Professional Type</label>
+                                  <div class="col-lg-7">
+                                    <select name="account" class="form-control">
+                                        <option value="option 1">option 1</option>
+                                        <option value="option 2">option 2</option>
+                                        <option value="option 3">option 3</option>
+                                        <option value="option 4">option 4</option>
+                                    </select>
+                                  </div>
+                                  <div class="col-lg-3">
+                                    <button class="btn m-b-xs btn-sm btn-default btn-addon"><i class="fa fa-plus"></i>Save</button>
+                                  </div>
+                                </div>
+                            </div>
+                          </footer>
+                    </div>
+                </div> 
+            </div><!-- // Form -->
+        </div>
+    </div>
+</div>
+

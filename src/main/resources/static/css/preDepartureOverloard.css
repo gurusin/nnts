@@ -1,0 +1,93 @@
+.contentWrap{
+    position:relative;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+    width:80%;
+}
+
+.contentWrap div.dataGroup{
+    float:left;
+    width:70%;
+    margin:4px 0 0 0;
+}
+
+.contentWrap div.dataGroup div.databox{
+    width:70%;
+}
+
+.profTable{
+    width:100%;
+    float:left;
+}
+
+.tblTr{
+    width:100%;
+    float:left;
+}
+
+.tblAdd{
+    width:10%;
+    float:left;
+}
+.tblColumn{
+    width:28%;
+    float:left;
+}
+
+.tblColumn .inputObj{
+    width:95%;
+    height:20px;
+    float:left;
+}
+
+.dataRow{
+    width:100%;
+    float:left;
+    height:auto;
+    margin:3px 0 0 0;
+}
+
+.dataRow input{
+	width:100%;
+}
+	
+.dataRow span{
+    height:18px;
+    float:left;
+}
+
+.dataRow span.lableS{
+    width:50%;
+    margin:2px 8px 0 0;
+}
+
+.dataRow span.lableM{
+    width:50%;
+    margin:2px 8px 0 0;
+}
+
+.dataRow span.lableL{
+    width:50%;
+    margin:2px 8px 0 0;
+}
+
+.dataRow span.lableFull{
+    width:95%;
+    margin:0;
+}
+
+.dataRow span.lableVal{
+    width:8%;
+    margin:2px 0 0 0;
+}
+
+.dataRow span.lableValL{
+    width:15%;
+    margin:2px 0 0 0;
+}
+
+.dataRow span.lableInput{
+    width:3%;
+    margin:2px 0 0 0;
+}

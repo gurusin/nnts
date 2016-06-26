@@ -1,0 +1,96 @@
+body
+{
+    background-color: #bdeabd;
+}
+
+.data
+{
+    text-align: left;
+}
+.dataGroup
+{
+    border-style: solid;
+    border-width: 1px;
+}
+.dataHeader
+{
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    font-feature-settings: normal;
+    background-color: #b4aa31;
+    border-color: #4faaea;
+    padding-bottom: 10px;
+}
+.databox
+{
+    background-color: #dffafd;
+    padding-bottom: 5px;
+    vertical-align: top;
+}
+
+.dataTable
+{
+    background-color: #dffafd;
+    padding-bottom: 5px;
+    vertical-align: top;
+}
+.dataColumn
+{
+    margin-right: 25px;
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.buttonAdmin {
+    background-color: #af4a42;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+}
+
+.dataRow
+{
+    vertical-align: top;
+}
+
+a:link, a:visited {
+    background-color: #9ff4a4;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+a:hover, a:active {
+    background-color: #ffc04d;
+}
+
+nav
+{
+    background-color: #285e8e;
+    height: 100px;
+}
+
+.navbar-header
+{
+    background-color:#285e8e;
+    color:white;
+    text-align: center;
+    font-size: 20px;
+}
+

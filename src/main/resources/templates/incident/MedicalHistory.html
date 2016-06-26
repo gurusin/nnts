@@ -1,0 +1,268 @@
+<div class="container content-area">
+    <div class="col-sm-12">
+        <div class="row">
+            <h1>Presentation to the local hospital</h1>
+
+            <!-- Form -->
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <div class="panel panel-default">
+                        <div class="panel-body m-t-md m-b-md">
+                            <div class="bs-example form-horizontal ng-pristine ng-valid">
+                                <div class="form-group">
+                                  <label class="col-lg-5 control-label">Age at presentation (hours)</label>
+                                  <div class="col-lg-5">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+            </div><!-- // Form -->
+
+            <!-- Form -->
+            <div class="row m-t-lg">
+                <div class="col-sm-12">
+
+                    <!-- Heading -->
+                    <h3>Problems since birth</h3><!-- // Heading -->
+
+                    <div class="panel panel-default">
+                        <div class="panel-body m-t-md m-b-md">
+                            <div class="bs-example ng-pristine ng-valid">
+
+                                <div class="col-sm-12">
+                                    <div class="row">
+
+                                        <table class="table m-b-none">
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                <label class="control-label text-left">Date
+                                                    <input type="text" class="form-control" />
+                                                </label>
+                                              </td>
+                                              <td>
+                                                <label class="control-label text-left">Problem Identified
+                                                    <input type="text" class="form-control" />
+                                                </label>
+                                              </td>
+                                              <td>
+                                                <label class="control-label text-left">Day of illness
+                                                    <input type="text" class="form-control" />
+                                                </label>
+                                              </td>
+                                              <td>
+                                                <label class="control-label text-left">Action taken
+                                                    <input type="text" class="form-control" />
+                                                </label>
+                                              </td>
+                                              <td>
+                                                <label class="control-label text-left">Day of Resolving
+                                                    <input type="text" class="form-control" />
+                                                </label>
+                                              </td>
+                                              <td>
+                                                <label class="control-label text-left"></label><br>
+                                                <button class="btn m-b-xs btn-sm btn-default btn-addon"><i class="fa fa-times"></i>Remove</button>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                    </div>
+
+                                    <button class="btn1" ng-click="onAdd()">Add Problem</button>
+                                </div>
+                                
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+            </div><!-- // Form -->
+
+
+            <!-- Form -->
+            <div class="row m-t-lg">
+                <div class="col-sm-12">
+
+                    <!-- Heading -->
+                    <h3>Relevant Clinical Findings</h3><!-- // Heading -->
+
+                    <div class="panel panel-default">
+                        <div class="panel-body m-t-md m-b-md">
+                          <div class="bs-example ng-pristine ng-valid">
+                            <div class="form-group">
+                              <label class="col-lg-2 control-label">Finding type</label>
+                              <div class="col-lg-5">
+                                <select name="account" class="form-control m-b">
+                                    <option value="option 1">option 1</option>
+                                    <option value="option 2">option 2</option>
+                                    <option value="option 3">option 3</option>
+                                    <option value="option 4">option 4</option>
+                                </select>
+                                <textarea name="" id="" class="form-control" rows="5"></textarea>
+                              </div>
+                            </div>
+                          </div> 
+                        </div>
+                    </div>
+                </div>
+            </div><!-- // Form -->
+
+
+            <!-- Form -->
+            <div class="row m-t-lg">
+                <div class="col-sm-12">
+
+                    <!-- Heading -->
+                    <h3>Investigation finding at referring hospital (Please indicate the dates)</h3><!-- // Heading -->
+
+                    <div class="panel panel-default">
+                        <div class="panel-body m-t-md m-b-md">
+                          <div class="bs-example ng-pristine ng-valid">
+                            <div class="col-md-12 m-b-xxl">
+                              <label class="col-lg-2 control-label">Hematological</label>
+                              <div class="col-lg-5">
+                                <select name="account" class="form-control m-b">
+                                    <option value="option 1">option 1</option>
+                                    <option value="option 2">option 2</option>
+                                    <option value="option 3">option 3</option>
+                                    <option value="option 4">option 4</option>
+                                </select>
+                                <textarea name="" id="" class="form-control" rows="5"></textarea>
+                              </div>
+                            </div>
+                            
+                            <div class="col-md-12 m-b-xxl">
+                              <label class="col-lg-2 control-label">Finding type Microbiological</label>
+                              <div class="col-lg-5">
+                                <select name="account" class="form-control m-b">
+                                    <option value="option 1">option 1</option>
+                                    <option value="option 2">option 2</option>
+                                    <option value="option 3">option 3</option>
+                                    <option value="option 4">option 4</option>
+                                </select>
+                                <textarea name="" id="" class="form-control" rows="5"></textarea>
+                              </div>
+                            </div>
+
+                            <div class="col-md-12 m-b-xxl">
+                              <label class="col-lg-2 control-label">Radiological investigation including Ultra Sound scans</label>
+                              <div class="col-lg-5">
+                                <select name="account" class="form-control m-b">
+                                    <option value="option 1">option 1</option>
+                                    <option value="option 2">option 2</option>
+                                    <option value="option 3">option 3</option>
+                                    <option value="option 4">option 4</option>
+                                </select>
+                                <textarea name="" id="" class="form-control" rows="5"></textarea>
+                              </div>
+                            </div>
+                          </div> 
+                        </div>
+                    </div>
+                </div>
+            </div><!-- // Form -->
+
+            <!-- Form -->
+            <div class="row m-t-lg">
+                <div class="col-sm-12">
+
+                    <!-- Heading -->
+                    <h3>Medications given at referring hospital</h3><!-- // Heading -->
+
+                    <div class="panel panel-default">
+                        <div class="panel-body m-t-md m-b-md">
+                            <div class="bs-example ng-pristine ng-valid">
+
+                                <div class="col-sm-12">
+                                    <div class="row">
+
+                                        <table class="table m-b-none">
+                                          <tbody>
+                                            <tr>
+                                              <td>
+                                                <label class="control-label text-left">Antibiotics / Other medication
+                                                    <input type="text" class="form-control"/>
+                                                </label>
+                                              </td>
+                                              <td>
+                                                <label class="control-label text-left">Dose and route
+                                                    <input type="text" class="form-control"/>
+                                                </label>
+                                              </td>
+                                              <td>
+                                                <label class="control-label text-left">Frequency
+                                                    <input type="text" class="form-control"/>
+                                                </label>
+                                              </td>
+                                              <td>
+                                                <label class="control-label text-left">Duration
+                                                    <input type="text" class="form-control"/>
+                                                </label>
+                                              </td>
+                                              <td>
+                                                <label class="control-label text-left">Time of last dose
+                                                    <input type="text" class="form-control"/>
+                                                </label>
+                                              </td>
+                                              <td>
+                                                <label class="control-label text-left"></label><br>
+                                                <button class="btn m-b-xs btn-sm btn-default btn-addon"><i class="fa fa-times"></i>Remove</button>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        
+                                    </div>
+
+                                    <button class="btn1" ng-click="onAdd()">Add Medication</button>
+                                </div>
+                                
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+            </div><!-- // Form -->
+
+            <!-- Form -->
+            <div class="row m-t-lg">
+                <div class="col-sm-12">
+
+                    <div class="panel panel-default">
+                        <div class="panel-body m-t-md m-b-md">
+                            <div class="bs-example ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-sm-3 control-label">Who is accompanying baby</label>
+                                  <div class="col-sm-9">
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" value="option1"/> Mother
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" value="option2"/> Father
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" value="option3"/> Guardian
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" value="option4"/> Other
+                                    </label>
+                                  </div>
+                                </div>
+                                
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+            </div><!-- // Form -->
+
+        </div>
+
+        <div class="row m-b-xxl">
+            <button type="button" class='btn1' ng-click="addRecord()">Save Data</button>
+        </div>
+    </div>
+</div>

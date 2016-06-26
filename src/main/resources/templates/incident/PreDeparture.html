@@ -1,0 +1,1118 @@
+<div class="container content-area">
+    <div class="col-sm-12">
+        <div class="row">
+            <h1>Neonatal Transfer - Pre Departure Check List</h1>
+
+            <!-- Form -->
+            <div class="row m-t-lg">
+                <div class="col-sm-12">
+
+                    <!-- Heading -->
+                    <h3>Handover at receiving unit</h3><!-- // Heading -->
+
+                    <div class="panel panel-default">
+                        <div class="table-responsive">
+                            <table class="table b-t b-light">
+                              <thead>
+                                <tr>
+                                  <th class="text-center">Name</th>
+                                  <th class="text-center">Type</th>
+                                  <th class="text-center">Grade</th>
+                                  <th class="text-center" width="10%"></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr ng-repeat="mp in referringUnitTeam">
+                                    <td><input type="text" class="form-control" ng-model="mp.name"/></td>
+                                    <td>
+                                        <select class="form-control" ng-model="mp.medProfessionalType_key" ng-change="receivingMedProfTypeChange(mp)">
+                                            <option ng-repeat="obj in medProfTypes" value="{{obj.primaryKey}}">{{obj.description}}
+                                            </option>
+                                        </select>
+                                    </td>
+                                    <td><select class="form-control" ng-model="mp.category_key">
+                                            <option ng-repeat=" obj in mp.categories" value="{{obj.primaryKey}}">{{obj.name}}</option>
+                                        </select>
+                                    </td>
+                                    <td><button ng-click="remove($index,1)" class="btn m-b-xs btn-sm btn-default btn-addon"><i class="fa fa-trash-o"></i>Remove</button></td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </div>
+                          <footer class="panel-footer">
+                            <div class="row">
+                              <div class="col-sm-4 text-left">
+                                <button ng-click="addReceivingUnitMember(1)" class="btn m-b-xs btn-sm btn-info btn-addon"><i class="fa fa-plus"></i>Add</button>
+                              </div>
+                              <div class="col-sm-4 text-right text-center-xs pull-right">                
+                                <ul class="pagination pagination-sm m-t-none m-b-none pull-right">
+                                  <li><a href=""><i class="fa fa-chevron-left"></i></a></li>
+                                  <li><a href="">1</a></li>
+                                  <li><a href="">2</a></li>
+                                  <li><a href="">3</a></li>
+                                  <li><a href="">4</a></li>
+                                  <li><a href="">5</a></li>
+                                  <li><a href=""><i class="fa fa-chevron-right"></i></a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </footer>
+                    </div>
+                </div> 
+            </div><!-- // Form -->
+
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+
+                <!-- Form -->
+                <div class="row m-t-lg">
+                
+                    <div class="col-sm-12">
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t-md m-b-md">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Date and Time of departure (yyyy-mm-dd hh:mm:ss)</label>
+                                  <div class="col-sm-8">
+
+                                    <div class="dropdown">
+                                      <a class="dropdown-toggle" id="dLabel2" role="button" data-toggle="dropdown" data-target="#" href="">
+                                          <div class="input-group">
+                                            <input type="text" class="form-control" value="{{ data.date2 | date:'yyyy-MM-dd HH:mm' }}"/>
+                                            <span class="input-group-btn">
+                                              <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                          </div>
+                                      </a>
+                                      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel2">
+                                          <datetimepicker data-ng-model="data.date2"></datetimepicker>
+                                      </ul>
+                                    </div>  
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Accompanying Medical Officer</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Accompanying Nursing Officer</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- // Form -->
+
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+
+                <!-- Form -->
+                <div class="row m-t-lg">
+                
+                    <div class="col-sm-6">
+                        <!-- Heading -->
+                        <h3>Airway</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t m-b">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Neutral and patient airway maintained</label>
+                                  <div class="col-sm-8">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Guedel Airway</label>
+                                  <div class="col-sm-8">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">ETT size</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Lip Level</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-sm-6">
+                    
+                        <!-- Heading -->
+                        <h3>&nbsp;</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t m-b">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">ETT anchored well</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">ETT in correct position in CXR</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">Has stomach been emptied with NG tube</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">Pneumothorax</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">ICT inserted and functioning well</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- // Form -->
+
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+
+                <!-- Form -->
+                <div class="row m-t-lg">
+                
+                    <div class="col-sm-6">
+                        <!-- Heading -->
+                        <h3>Breathing</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t m-b">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">Oxygen Deliver In Air</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">Tight face mask</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">Loose face mask</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">Nasal prongs</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">Head box</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">IPPV through face mask</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">IPPV through ETT</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">IPPV through Ventilator</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">Chest expansion adequate</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">Is air entry equal</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">Last ABG Satisfactory</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-6 control-label">Cyanosis</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-sm-6">
+
+                        <!-- Heading -->
+                        <h3>&nbsp;</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t m-b">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Liters of oxygen /minute</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Assesment RR minute Recessions</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">pH</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">P<sub>a</sub>O<sub>2</sub></label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">HCO<sub>3</sub></label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Last SpO<sub>2</sub></label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- // Form -->
+
+
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+
+
+                <!-- Form -->
+                <div class="row m-t-lg">
+                
+                    <div class="col-sm-6">
+                        <!-- Heading -->
+                        <h3>Circulation</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t-md m-b-md">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Number of IV lines</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        One
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        Two
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">IV lines secured well</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Inotropic</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Fluid boluses 10 ml/kg</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- // Form -->
+
+
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+
+
+                <!-- Form -->
+                <div class="row m-t-lg">
+                
+                    <div class="col-sm-6">
+                        <!-- Heading -->
+                        <h3>Assesment</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t-md m-b-md">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Pulse rate</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Minute and volume is</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Good 
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        Bad
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">MAP (mmHg)</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">CRFT</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Less Than 2
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        Greater Than 2
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Extremities</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Warm 
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        Cold
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">BM Stix (mmol /l)</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Skin colour</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Pale
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        Mottled
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- // Form -->
+
+
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+
+
+                <!-- Form -->
+                <div class="row m-t-lg">
+                
+                    <div class="col-sm-6">
+                        <!-- Heading -->
+                        <h3>Disability</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t-md m-b-md">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Fits</label>
+                                  <div class="col-sm-8">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes 
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        Generalized
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        Focal
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        Subtle
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Breathing Pattern</label>
+                                  <div class="col-sm-8">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Hyperventilation 
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        Cheyne-Stoked breathing
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        Apnoeas
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        Gasping
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Posture</label>
+                                  <div class="col-sm-8">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Normal 
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        Hypotonic
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        Hypertonic
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- // Form -->
+
+
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+
+
+                <!-- Form -->
+                <div class="row m-t-lg">
+                
+                    <div class="col-sm-6">
+                        <!-- Heading -->
+                        <h3>Temperature</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t-md m-b-md">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Axillary temperature</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Rewarming done</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Plastic bags/ cups</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Kangaroo mother care</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Warm Blankets</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label">Hot water blankets</label>
+                                  <div class="col-sm-6">
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option3" />
+                                        Yes
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option4" />
+                                        No
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- // Form -->
+
+            <!-- Form -->
+            <div class="row m-t-lg">
+                <div class="col-sm-12">
+
+                    <!-- Heading -->
+                    <h3>Handover at receiving unit</h3><!-- // Heading -->
+
+                    <div class="panel panel-default">
+                        <div class="table-responsive">
+                            <table class="table b-t b-light">
+                              <thead>
+                                <tr>
+                                  <th class="text-center">Name</th>
+                                  <th class="text-center">Type</th>
+                                  <th class="text-center">Grade</th>
+                                  <th class="text-center" width="10%"></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr ng-repeat="mp in referringUnitTeam">
+                                    <td><input type="text" class="form-control" ng-model="mp.name"/></td>
+                                    <td>
+                                        <select class="form-control" ng-model="mp.medProfessionalType_key" ng-change="receivingMedProfTypeChange(mp)">
+                                            <option ng-repeat="obj in medProfTypes" value="{{obj.primaryKey}}">{{obj.description}}
+                                            </option>
+                                        </select>
+                                    </td>
+                                    <td><select class="form-control" ng-model="mp.category_key">
+                                            <option ng-repeat=" obj in mp.categories" value="{{obj.primaryKey}}">{{obj.name}}</option>
+                                        </select>
+                                    </td>
+                                    <td><button ng-click="remove($index,1)" class="btn m-b-xs btn-sm btn-default btn-addon"><i class="fa fa-trash-o"></i>Remove</button></td>
+                                </tr>
+
+                                <tr ng-repeat="mp in receivingUnitTeam">
+                                    <td><input class="form-control" type="text" ng-model="mp.name"/></td>
+                                    <td>
+                                        <select class="form-control" ng-model="mp.medProfessionalType_key" ng-change="receivingMedProfTypeChange(mp)">
+                                            <option ng-repeat="obj in medProfTypes" value="{{obj.primaryKey}}">{{obj.description}}
+                                            </option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control" ng-model="mp.category_key">
+                                            <option ng-repeat=" obj in mp.categories" value="{{obj.primaryKey}}">{{obj.name}}</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <button ng-click="remove($index,2)" class="btn m-b-xs btn-sm btn-default btn-addon"><i class="fa fa-trash-o"></i>Remove</button>
+                                    </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </div>
+                          <footer class="panel-footer">
+                            <div class="row">
+                              <div class="col-sm-4 text-left">
+                                <button ng-click="addReceivingUnitMember(2)" class="btn m-b-xs btn-sm btn-info btn-addon"><i class="fa fa-plus"></i>Add</button>
+                              </div>
+                              <div class="col-sm-4 text-right text-center-xs pull-right">                
+                                <ul class="pagination pagination-sm m-t-none m-b-none pull-right">
+                                  <li><a href=""><i class="fa fa-chevron-left"></i></a></li>
+                                  <li><a href="">1</a></li>
+                                  <li><a href="">2</a></li>
+                                  <li><a href="">3</a></li>
+                                  <li><a href="">4</a></li>
+                                  <li><a href="">5</a></li>
+                                  <li><a href=""><i class="fa fa-chevron-right"></i></a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </footer>
+                    </div>
+                </div> 
+            </div><!-- // Form -->
+
+        </div>
+
+
+        <div class="row m-b-xxl m-t-xl">
+            <button type="button" class='btn1' ng-click="saveDeparture()">Save Data</button>
+        </div>
+    </div>
+</div>
+
+<!-- 
+<script type="text/javascript">
+    $(function () {
+        $('#departure-picker').datetimepicker();
+    });
+</script>
+ -->

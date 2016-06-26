@@ -1,0 +1,144 @@
+<div class="container content-area" ng-init="load()">
+    <div class="col-sm-12">
+        <div class="row">
+            <h1>Manage Centers</h1>
+
+            <div class="panel panel-default">
+              <div class="table-responsive">
+                <table class="table table-striped b-t b-light">
+                  <thead>
+                    <tr>
+                      <th class="text-center" width="50%">Name</th>
+                      <th class="text-center" width="50%">District</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="center in centers">
+                        <td>{{center.name}}</td>
+                        <td>{{center.districtDTO.name}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <footer class="panel-footer">
+                <div class="row">
+                  <div class="col-sm-4 text-left">
+                    <button class="btn m-b-xs btn-sm btn-info btn-addon" ng-click="addCenter = !addCenter"><i class="fa fa-plus"></i>Add New Center</button>
+                  </div>
+                  <div class="col-sm-4 text-right text-center-xs pull-right">                
+                    <ul class="pagination pagination-sm m-t-none m-b-none pull-right">
+                      <li><a href=""><i class="fa fa-chevron-left"></i></a></li>
+                      <li><a href="">1</a></li>
+                      <li><a href="">2</a></li>
+                      <li><a href="">3</a></li>
+                      <li><a href="">4</a></li>
+                      <li><a href="">5</a></li>
+                      <li><a href=""><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </footer>
+            </div>
+
+                <!-- Form -->
+                <div class="row m-t-xl m-b-xxl" ng-show="addCenter">
+                
+                    <div class="col-sm-6">
+                        <!-- Heading -->
+                        <h3>New Center</h3><!-- // Heading -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-body m-t-md m-b-md">
+                              <div class="bs-example form-horizontal ng-pristine ng-valid">
+
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Name of the Center</label>
+                                  <div class="col-lg-8">
+                                    <input type="text" class="form-control" ng-model="center.name"/>
+                                  </div>
+                                </div>
+
+                                <div class="line line-dashed b-b line-lg"></div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">Province</label>
+                                  <div class="col-lg-5">
+                                      <select id='province' ng-model="selectedProvince" ng-change="change()">
+                                          <option>Select</option>
+                                          <option ng-repeat="province in provinces"
+                                                  value="{{province.primaryKey}}">{{province.name}}
+                                          </option>
+                                      </select>
+                                  </div>
+                                  <div class="col-lg-3">
+                                    <button class="btn m-b-xs btn-sm btn-default btn-addon" ng-click="showProvince = !showProvince"><i class="fa fa-plus"></i>Add New</button>
+                                  </div>
+                                </div>
+
+                                <div class="form-group" ng-show="showProvince">
+                                    <label class="col-lg-4 control-label">New Province</label>
+                                    <div class="col-lg-5 m-b">
+                                        <input type="text" class="form-control" ng-model='province.name' />
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button class="btn m-b-xs btn-sm btn-default btn-addon" ng-click="saveProvince()">
+                                            <i class="fa fa-plus"></i>Save</button>
+                                      </div>
+
+                                    <div class="line line-dashed b-b line-lg"></div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label class="col-lg-4 control-label">District</label>
+                                  <div class="col-lg-5">
+                                      <select ng-model="center.districtKey">
+                                          <option ng-repeat='district in districtList track by $index'
+                                                  value="{{district.primaryKey}}">
+                                              {{district.name}}
+                                          </option>
+                                      </select>
+                                  </div>
+                                  <div class="col-lg-3">
+                                    <button class="btn m-b-xs btn-sm btn-default btn-addon" ng-click="showNewDistrict = !showNewDistrict">
+                                        <i class="fa fa-plus"></i>Add New</button>
+                                  </div>
+                                </div>
+
+                                <div class="form-group" ng-show='showNewDistrict'>
+                                    <label class="col-lg-4 control-label">New District</label>
+                                    <div class="col-lg-5 m-b">
+                                        <input type="text" class="form-control" ng-model='district.name' />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Province :</label>
+                                        <div class="col-lg-5 m-b">
+                                            <select ng-model="district.provinceKey">
+                                                <option>Select</option>
+                                                <option ng-repeat="province in provinces"
+                                                        value="{{province.primaryKey}}">{{province.name}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <button class="btn m-b-xs btn-sm btn-default btn-addon" ng-click="saveDistrict()"><i class="fa fa-plus"></i>Save</button>
+                                    </div>
+                                    <div class="line line-dashed b-b line-lg"></div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <button ng-click="saveCenter()" type="button" class='btn1'>Save</button>
+                                </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- // Form -->
+        </div>
+
+    </div>
+</div>

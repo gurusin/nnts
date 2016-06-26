@@ -1,0 +1,25 @@
+.right {
+
+    float:right;
+    margin-bottom:10px;
+
+}
+
+label {
+
+float:left;
+
+margin-bottom:15px;
+
+min-width: 100px;
+}
+
+.minw {
+min-width:150px;
+}
+
+p.com {
+    width: 150px;
+    font-weight: bold;
+    margin-bottom: -50px !Important;
+}
